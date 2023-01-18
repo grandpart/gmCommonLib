@@ -11,6 +11,8 @@ namespace Zephry
         /// A 32-bit signed integer used to carry access information in its bit patterns
         /// </summary>
         private int _accessMap;
+
+        //This is a test
         #endregion
 
         #region Properties
