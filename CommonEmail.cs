@@ -260,7 +260,7 @@ namespace Zephry
             vStringBuilder.AppendLine(String.Format("Organizer: {0}", aEmailArgument.Organizer.DisplayName));
             vStringBuilder.AppendLine(String.Format("Start Time:{0}{1}", aEmailArgument.DateStart.ToLongDateString(), aEmailArgument.DateStart.ToLongTimeString()));
             vStringBuilder.AppendLine(String.Format("End Time:{0}{1}", aEmailArgument.DateEnd.ToLongDateString(), aEmailArgument.DateEnd.ToLongTimeString()));
-            vStringBuilder.AppendLine(String.Format("Time Zone:{0}", TimeZone.CurrentTimeZone.StandardName));
+            vStringBuilder.AppendLine(String.Format("Time Zone:{0}", System.TimeZone.CurrentTimeZone.StandardName));
             vStringBuilder.AppendLine(String.Format("Location: {0}", aEmailArgument.Location));
             vStringBuilder.AppendLine("");
             vStringBuilder.AppendLine("*~*~*~*~*~*~*~*~*~*");
