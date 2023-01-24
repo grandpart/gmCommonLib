@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,11 +14,8 @@ namespace Zephry
         #endregion
 
         #region Properties
-        public TransactionResult TransactionResult
-        {
-            get { return _transactionResult; }
-            set { _transactionResult = value; }
-        }
+        [JsonProperty("txresult")]
+        public TransactionResult TransactionResult { get => _transactionResult; set => _transactionResult = value; }
         #endregion
 
         public TransactionStatusException(TransactionResult aTransactionResult, string aMessage) : base(aMessage)

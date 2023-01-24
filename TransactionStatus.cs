@@ -1,4 +1,5 @@
-﻿
+﻿using Newtonsoft.Json;
+
 namespace Zephry
 {
     public class TransactionStatus
@@ -9,20 +10,12 @@ namespace Zephry
         #endregion
 
         #region Properties
-        public TransactionResult TransactionResult
-        {
-            get { return _transactionResult; }
-            set { _transactionResult = value; }
-        }
-        public string Result
-        {
-            get { return CommonUtils.ParseEnum(_transactionResult); }
-        }
-        public string Message
-        {
-            get { return _message; }
-            set { _message = value; }
-        }
+        [JsonProperty("txresult")]
+        public TransactionResult TransactionResult { get => _transactionResult; set => _transactionResult = value; }
+        [JsonProperty("result")]
+        public string Result => CommonUtils.ParseEnum(_transactionResult);
+        [JsonProperty("message")]
+        public string Message { get => _message; set => _message = value; }
         #endregion
 
         #region Constructors
