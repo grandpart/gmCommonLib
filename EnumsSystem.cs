@@ -150,7 +150,6 @@ namespace Zephry
     }
     #endregion
 
-
     public enum FieldType
     {
         Lookup = 0,
@@ -475,31 +474,35 @@ namespace Zephry
         /// <summary>
         /// The transaction completed successfully
         /// </summary>
-        Ok = 1,
-        /// <summary>
-        /// The transaction raised a general exception
-        /// </summary>
-        General = 2,
+        Ok = 200,
         /// <summary>
         /// The transaction raised an access exception
         /// </summary>
-        Access = 3,
+        Access = 401,
         /// <summary>
-        /// The transaction raised a Delete exception
+        /// The user is not authorized
         /// </summary>
-        Delete = 4,
-        /// <summary>
-        /// The transaction raised a business rule exception
-        /// </summary>
-        Rule = 5,
-        /// <summary>
-        /// The transaction raised a client lapsed exception
-        /// </summary>
-        Lapsed = 6,
+        Role = 403,
         /// <summary>
         /// The user has been hijacked
         /// </summary>
-        Hijack = 7
+        BadData = 406,
+        /// <summary>
+        /// The transaction raised a Delete exception
+        /// </summary>
+        Delete = 409,
+        /// <summary>
+        /// The user has been hijacked
+        /// </summary>
+        Hijack = 418,
+        /// <summary>
+        /// The transaction raised a business rule exception
+        /// </summary>
+        Rule = 499,
+        /// <summary>
+        /// The transaction raised a general exception
+        /// </summary>
+        General = 500
     }
     #endregion
 

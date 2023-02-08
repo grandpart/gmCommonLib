@@ -344,5 +344,10 @@ namespace Zephry
             //}
         }
 
+        public static TransactionStatus getTransactionStatus(this TransactionStatusException aTx)
+        {
+            return new TransactionStatus(aTx.HttpCode, aTx.Result, aTx.Message);
+        }
+
     }
 }

@@ -1,45 +1,21 @@
-﻿using Newtonsoft.Json;
-
+﻿
 namespace Zephry
 {
     public class TransactionStatus
     {
-        #region Fields
-        private TransactionResult _transactionResult;
-        private string _message;
-        #endregion
+        private int _status;
+        private string _result = string.Empty;
+        private string _message = string.Empty;
 
-        #region Properties
-        [JsonProperty("txresult")]
-        public TransactionResult TransactionResult { get => _transactionResult; set => _transactionResult = value; }
-        [JsonProperty("result")]
-        public string Result => CommonUtils.ParseEnum(_transactionResult);
-        [JsonProperty("message")]
+        public int Status { get => _status; set => _status = value; }
+        public string Result { get => _result; set => _result = value; }
         public string Message { get => _message; set => _message = value; }
-        #endregion
 
-        #region Constructors
-
-        public TransactionStatus()
+        public TransactionStatus(int aStatus, string aResult, string aMessage)
         {
-        }
-
-        public TransactionStatus(TransactionResult aTransactionResult, string aMessage)
-        {
-            _transactionResult = aTransactionResult;
+            _status = aStatus;
+            _result = aResult;
             _message = aMessage;
         }
-        #endregion
-
-        #region AssignFromSource
-        public void AssignFromSource(TransactionStatus aSource)
-        {
-            if (aSource == null) { return; }
-
-            _transactionResult = aSource._transactionResult;
-            _message = aSource._message;
-        }
-        #endregion
-
     }
 }
