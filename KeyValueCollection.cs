@@ -4,11 +4,13 @@ namespace Zephry
     public class KeyValueCollection : Zephob
     {
         #region Fields
-        private List<KeyValue> _keyValueList = new();
+        private string _filter = string.Empty;
+        private List<KeyValue> _list = new();
         #endregion
 
         #region  Properties
-        public List<KeyValue> KeyValueList { get => _keyValueList; set => _keyValueList = value; }
+        public string Filter { get => _filter; set => _filter = value; }
+        public List<KeyValue> List { get => _list; set => _list = value; }
         #endregion
 
         #region Methods
@@ -19,12 +21,13 @@ namespace Zephry
                 throw new ArgumentException("aKeyValueCollection");
             }
 
-            _keyValueList.Clear();
-            foreach (var vKeyValueSource in ((KeyValueCollection)aSource)._keyValueList)
+            _filter = ((KeyValueCollection)aSource)._filter;
+            _list.Clear();
+            foreach (var vKeyValueSource in ((KeyValueCollection)aSource)._list)
             {
                 var vKeyValueTarget = new KeyValue();
                 vKeyValueTarget.AssignFromSource(vKeyValueSource);
-                _keyValueList.Add(vKeyValueTarget);
+                _list.Add(vKeyValueTarget);
             }
         }
         #endregion
